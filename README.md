@@ -2,6 +2,10 @@
 # 软件简介  
 
 这个程序的主要用途在于用Excel数据表整理SASPlanet地图下载器的web图层，将zmp图层组织成符合SASPlanet软件文档中要求的文件结构。在图层数量较多时，在Excel数据表中整理、添加、修改web图层条目可以大大节约时间，管理快捷键也是在表格中更快捷。
+ 
+软件截图
+
+![QQ20240731-081047](https://github.com/user-attachments/assets/6e0a3805-62b6-4d5f-8ff7-706021262f2b)
 
 由于SASPlanet软件本体只有windows的.exe发行版，linux平台都是wine运行，本插件也只提供win版，数据转换逻辑详见仓库中的ty5-2.py代码
 
