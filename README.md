@@ -30,7 +30,8 @@ zmp图源会自动生成在Maps文件夹下
 
 放好汉化文件后即可看到中文选项
 
-![2024-07-30_213419](https://github.com/user-attachments/assets/a11ba2ca-4e21-4cb0-8f82-234899e0e25d)
+![2024-08-05_074453](https://github.com/user-attachments/assets/0b4f4722-a74c-48ab-9aa5-3f63abc45313)
+
 ![QQ20240730-213640](https://github.com/user-attachments/assets/57360c85-10bc-4009-bf0b-82db16bae0bb)
 
 可以给图层和叠加层定义各自的快捷键，切换更快捷
