@@ -36,7 +36,7 @@ zmp图源会自动生成在Maps文件夹下
 
 可以给图层和叠加层定义各自的快捷键，切换更快捷
 
-![2024-07-30_213859](https://github.com/user-attachments/assets/de2a8d0d-f7dc-402b-a6c2-7060b5b4fe23)
+![2024-08-05_074945](https://github.com/user-attachments/assets/21b688b4-d9f0-4da8-b14b-ec510724fb63)
 
 如果是WinInet则选择使用系统(Internet Explorer)代理设置即可正常识别
 如果选择了cURL则必须要在下面手动配置代理才可以
