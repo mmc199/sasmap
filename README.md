@@ -50,7 +50,7 @@ zmp图源会自动生成在Maps文件夹下
 大尺寸底图拼图可以按如下配置导出，World Mercator变形小，超过65536x65536就分割，坐标文件选.w（short ext.）即.jgw。
 按多边形精确裁剪，选择范围还可以导出、导入KML文件，用release里提供的脚本导入CAD后方便AL到原坐标。
 
-![QQ20240731-084437](https://github.com/user-attachments/assets/5ab681d7-f963-41db-b5e6-4392f1613df6)
+![QQ20240805-080057](https://github.com/user-attachments/assets/11642a70-3fee-4923-915b-7c0496bfc247)
 
 ![1-20240731](https://github.com/user-attachments/assets/1bcef6da-ff97-4d44-b512-8f44b61c0ec6)
 
