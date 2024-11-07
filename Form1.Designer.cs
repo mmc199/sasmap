@@ -137,6 +137,7 @@ namespace ty5_2
             this.textBox3_Log.Location = new System.Drawing.Point(98, 234);
             this.textBox3_Log.Multiline = true;
             this.textBox3_Log.Name = "textBox3_Log";
+            this.textBox3_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3_Log.Size = new System.Drawing.Size(561, 204);
             this.textBox3_Log.TabIndex = 8;
             // 
