@@ -17,6 +17,8 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
 
+using System.Collections.Specialized;
+
 namespace ty5_2
 {
     public partial class Form1 : Form
@@ -30,6 +32,11 @@ namespace ty5_2
             this.AllowDrop = true;
             this.textBox1_Link.AllowDrop = true;
             this.textBox2_Target.AllowDrop = true;
+
+
+            // 为两个文本框添加KeyDown事件处理
+            this.textBox1_Link.KeyDown += new KeyEventHandler(TextBox1_KeyDown);
+            this.textBox2_Target.KeyDown += new KeyEventHandler(TextBox2_KeyDown);
 
             // 为textBox_Link和textBox_Target添加事件处理程序
             this.textBox1_Link.DragEnter += new DragEventHandler(textBox_DragEnter);
@@ -52,6 +59,86 @@ namespace ty5_2
 
 
         }
+
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 检测 Ctrl+V 组合键
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                // 检查剪贴板中是否有文件路径
+                if (Clipboard.ContainsFileDropList())
+                {
+                    // 获取剪贴板中的文件路径
+                    StringCollection files = Clipboard.GetFileDropList();
+                    if (files.Count > 0)
+                    {
+                        string firstPath = files[0]; // 获取第一个路径
+
+                        // 检查文件是否为 .xls 文件
+                        if (File.Exists(firstPath) &&
+                            (Path.GetExtension(firstPath).Equals(".xls", StringComparison.OrdinalIgnoreCase) ||
+                             Path.GetExtension(firstPath).Equals(".xlsx", StringComparison.OrdinalIgnoreCase)))
+                        {
+                            // 如果是 .xls 或 .xlsx 文件，接受它
+                            textBox1_Link.Text = firstPath;
+                        }
+                        else
+                        {
+                            // 如果不是 .xls 文件，显示提示
+                            // 异步显示消息提示，避免锁死文件浏览窗口
+                            this.BeginInvoke(new MethodInvoker(delegate
+                            {
+                                MessageBox.Show("请选择.xls文件");
+                            }));
+                            return; // 终止处理
+                        }
+
+                        e.Handled = true; // 阻止默认的粘贴行为
+                    }
+                }
+            }
+        }
+
+
+        private void TextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 检测 Ctrl+V 组合键
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                // 使用完全限定的类型名称解决命名冲突
+                System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+                if (textBox != null)
+                {
+                    // 检查剪贴板中是否有文件路径
+                    if (Clipboard.ContainsFileDropList())
+                    {
+                        // 获取剪贴板中的文件路径
+                        StringCollection files = Clipboard.GetFileDropList();
+                        if (files.Count > 0)
+                        {
+                            string firstPath = files[0]; // 获取第一个路径
+
+                            // 判断是文件还是目录
+                            if (File.Exists(firstPath))
+                            {
+                                // 如果是文件，获取其所在目录
+                                string directory = Path.GetDirectoryName(firstPath);
+                                textBox.Text = directory;
+                            }
+                            else if (Directory.Exists(firstPath))
+                            {
+                                // 如果是目录，直接使用该路径
+                                textBox.Text = firstPath;
+                            }
+
+                            e.Handled = true; // 阻止默认的粘贴行为
+                        }
+                    }
+                }
+            }
+        }
+
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -270,10 +357,23 @@ namespace ty5_2
             }
             if (!Directory.Exists(textBox2_Target.Text)) // 检查目标目录是否存在
             {
-                error = true;
-                MessageBox.Show("您在“位置”文本框中指定的文件夹不存在。");
+                    try
+                    {
+                        // 创建目录及其所有父目录
+                        Directory.CreateDirectory(textBox2_Target.Text);
+
+                        // 可选：显示成功创建的消息
+                        MessageBox.Show($"已成功创建目标目录: {textBox2_Target.Text}");
+                    }
+                    catch (Exception ex)
+                    {
+                        // 如果创建失败，显示错误消息
+                        error = true;
+                        MessageBox.Show($"无法创建目标目录: {textBox2_Target.Text}\n错误信息: {ex.Message}");
+                    }
+                
             }
-            if (!File.Exists(textBox1_Link.Text)) // 检查目标目录是否存在
+            if (!File.Exists(textBox1_Link.Text)) // 检查xls文件是否存在
             {
                 error = true;
                 MessageBox.Show("您在“xls”文本框中指定的文件不存在。");
