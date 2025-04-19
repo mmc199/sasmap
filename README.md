@@ -1,5 +1,9 @@
 # sasmap图源管理小程序ty5-2
-# 软件简介  
+# 软件简介 
+# 视频简介 
+https://www.bilibili.com/video/BV1LSdiYrEGP/? 
+讨论群  369191434  图源 【腾讯文档】 ty5-2  
+https://docs.qq.com/sheet/DS2x4SWhGd1ZmS3dK?tab=000001
 
 这个程序的主要用途在于用Excel数据表整理SASPlanet地图下载器的web图层，将zmp图层组织成符合SASPlanet软件文档中要求的文件结构。在图层数量较多时，在Excel数据表中整理、添加、修改web图层条目可以大大节约时间，管理快捷键也是在表格中更快捷。
  
