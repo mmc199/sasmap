@@ -5,7 +5,7 @@ https://www.bilibili.com/video/BV1LSdiYrEGP/?
 https://docs.qq.com/sheet/DS2x4SWhGd1ZmS3dK?tab=000001
 
 # 软件简介 
-打包好的链接 https://github.com/mmc199/sasmap/releases/download/1.0.0/SAS.7z 
+打包好的releases版链接 https://github.com/mmc199/sasmap/releases/download/1.0.0/SAS.7z 
 
 这个程序的主要用途在于用Excel数据表整理SASPlanet地图下载器的web图层，将zmp图层组织成符合SASPlanet软件文档中要求的文件结构。在图层数量较多时，在Excel数据表中整理、添加、修改web图层条目可以大大节约时间，管理快捷键也是在表格中更快捷。
  
