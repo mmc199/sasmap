@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB18030"?>
+<DataDefine>
+<Name>geterrain</Name>
+<GeoGridType>WebMercatorWGS84</GeoGridType>
+<SampleSize>512</SampleSize>
+<FileExt>tdgggis-GCJ02</FileExt>
+<DataType>urlformat</DataType>
+<MapSpaceType>GCJ02</MapSpaceType>
+<UrlParamOrder>x,y,z</UrlParamOrder>
+<LocalPath></LocalPath>
+<NetPath>https://mt3v.gggis.com/vt/imgtp=jpg&lyrs=s,h&gl=CN&scale=2&x=%d&y=%d&z=%d</NetPath>
+<TileRowDir>NorthToSouth</TileRowDir>
+<Range>
+<West>-180</West>
+<East>180</East>
+<South>-90</South>
+<North>90</North>
+<LevelBegin>3</LevelBegin>
+<LevelEnd>18</LevelEnd>
+</Range>
+<HttpHeaders></HttpHeaders>
+</DataDefine>
+
